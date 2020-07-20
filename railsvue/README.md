@@ -1,3 +1,7 @@
+对应文档：
+
+* [rails6+vue的集成使用 (rev.3)](https://weinan.io/2020/07/20/rails.html)
+
 编译vm：
 
 ```bash
