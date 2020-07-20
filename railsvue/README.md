@@ -54,10 +54,25 @@ js/application-1913d93baede563e2a6d.js.map    571 KiB  application  [emitted] [d
 $ rails s
 ```
 
+启动输出：
+
+```bash
+[vagrant@ibm-p8-kvm-03-guest-02 vuedemo]$ rails s
+=> Booting Puma
+=> Rails 6.0.3.2 application starting in development
+=> Run `rails server --help` for more startup options
+Puma starting in single mode...
+```
+
 访问页面结果：
 
 ```bash
-[vagrant@ibm-p8-kvm-03-guest-02 ~]$ http http://localhost:3000/hello/say_hello
+$ http http://localhost:3000/hello/say_hello
+```
+
+输出结果：
+
+```
 HTTP/1.1 200 OK
 Cache-Control: max-age=0, private, must-revalidate
 Content-Type: text/html; charset=utf-8
