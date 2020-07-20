@@ -1,9 +1,12 @@
 #!/bin/sh
 set -x
-sudo dnf install -y podman httpie
+sudo dnf install -y unzip zip curl sed httpie
+source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
+sdk install java 11.0.7.j9-adpt
+\curl -sSL https://get.rvm.io | bash
+source /home/vagrant/.rvm/scripts/rvm
+rvm install jruby
 
-sudo podman pull registry.hub.docker.com/library/nginx
-sudo podman run --name my-nginx -d -p 80:80 nginx
-sudo podman ps
-http localhost | head
-sudo podman stop my-nginx
+
+
+
