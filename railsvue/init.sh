@@ -2,29 +2,8 @@
 set -x
 
 # 安装基础的依赖包
-sudo dnf install -y unzip zip curl sed httpie
+sudo dnf install -y unzip zip curl sed httpie ruby ruby-devel g++ nodejs redhat-rpm-config zlib-devel git make rpm-build ruby-devel sqlite-devel automake libtool htop lsof
 
-# 通过sdkman安装java
-# FIXME: jruby目前跟rails6的集成还不太稳定
-#curl -s "https://get.sdkman.io" | bash
-#source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
-#sdk install java 11.0.7.j9-adpt
-
-# 安装rvm
-\curl -sSL https://get.rvm.io | bash
-source /etc/profile.d/rvm.sh
-# 设置镜像
-echo "ruby_url=https://cache.ruby-china.com/pub/ruby" > ~/.rvm/user/db
-
-# 安装jruby
-# FIXME: jruby目前跟rails6的集成还不太稳定
-# rvm install jruby
-
-# 安装普通ruby
-rvm install ruby
-
-# 安装npm和node和yarn
-sudo dnf install -y nodejs
 curl -L https://www.npmjs.com/install.sh | sh
 sudo npm install -g cnpm
 sudo cnpm install -g yarn
@@ -33,11 +12,8 @@ sudo cnpm install -g yarn
 gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
 bundle config mirror.https://rubygems.org https://gems.ruby-china.com
 
-# 安装rails和相关依赖
-sudo dnf install -y g++
-
-# 安装jruby的时候rails已经自带了
-# gem install rails
+# 安装rails
+gem install rails
 
 # 创建rails项目，并且使用vue模块
 cd /home/vagrant/
@@ -54,17 +30,23 @@ cat > /home/vagrant/vuedemo/app/views/hello/say_hello.html.erb <<EOF
 </div>
 EOF
 
-cd /home/vagrant/vuedemo
-# 启动vue的编译过程
-nohup bin/webpack-dev-server &>vue.log &
-# 等待vue编译完成
-sleep 20
+chown -R vagrant:vagrant /home/vagrant
 
-# 启动rails服务器
-nohup rails s &>rails.log &
-# 等待20秒，等rails启动，因为使用的是jruby，jvm的warmup需要一定时间
-sleep 20
 
+# todo: 下面的过程要封装进一个运行脚本，不在编译流程里
+#cd /home/vagrant/vuedemo
+## 启动vue的编译过程
+#nohup bin/webpack-dev-server &>vue.log &
+## 等待vue编译完成
+#sleep 20
+#
+## 启动rails服务器
+#nohup rails s &>rails.log &
+## 等待20秒，等rails启动，因为使用的是jruby，jvm的warmup需要一定时间
+#sleep 20
+#
+## 尝试访问服务
+#http http://localhost:3000/hello/say_hello
 
 
 
