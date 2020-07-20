@@ -5,19 +5,19 @@ set -x
 sudo dnf install -y unzip zip curl sed httpie
 
 # 通过sdkman安装java
-# jruby目前跟rails6的集成还不太稳定
+# FIXME: jruby目前跟rails6的集成还不太稳定
 #curl -s "https://get.sdkman.io" | bash
 #source "/home/vagrant/.sdkman/bin/sdkman-init.sh"
 #sdk install java 11.0.7.j9-adpt
 
 # 安装rvm
 \curl -sSL https://get.rvm.io | bash
-source /home/vagrant/.rvm/scripts/rvm
+source /etc/profile.d/rvm.sh
 # 设置镜像
 echo "ruby_url=https://cache.ruby-china.com/pub/ruby" > ~/.rvm/user/db
 
 # 安装jruby
-# jruby目前跟rails6的集成还不太稳定
+# FIXME: jruby目前跟rails6的集成还不太稳定
 # rvm install jruby
 
 # 安装普通ruby
