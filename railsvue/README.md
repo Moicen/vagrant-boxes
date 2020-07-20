@@ -27,6 +27,27 @@ $ pwd
 $ bin/webpack-dev-server
 ```
 
+编译输出：
+
+```bash
+[vagrant@ibm-p8-kvm-03-guest-02 vuedemo]$ bin/webpack-dev-server
+ℹ ｢wds｣: Project is running at http://localhost:3035/
+ℹ ｢wds｣: webpack output is served from /packs/
+ℹ ｢wds｣: Content not from webpack is served from /home/vagrant/vuedemo/public/packs
+ℹ ｢wds｣: 404s will fallback to /index.html
+ℹ ｢wdm｣: Hash: 80e236855d59dc82f1ce
+Version: webpack 4.43.0
+Time: 3857ms
+Built at: 07/20/2020 8:01:43 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-1913d93baede563e2a6d.js    507 KiB  application  [emitted] [immutable]  application
+js/application-1913d93baede563e2a6d.js.map    571 KiB  application  [emitted] [dev]        application
+      js/hello_vue-387e1a3f576f0d1a8176.js    649 KiB    hello_vue  [emitted] [immutable]  hello_vue
+  js/hello_vue-387e1a3f576f0d1a8176.js.map    744 KiB    hello_vue  [emitted] [dev]        hello_vue
+                             manifest.json  689 bytes               [emitted]
+ℹ ｢wdm｣: Compiled successfully.
+```
+
 启动rails服务：
 
 ```bash
