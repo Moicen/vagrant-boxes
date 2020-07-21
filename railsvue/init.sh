@@ -32,22 +32,7 @@ EOF
 
 chown -R vagrant:vagrant /home/vagrant
 
-
-# todo: 下面的过程要封装进一个运行脚本，不在编译流程里
-#cd /home/vagrant/vuedemo
-## 启动vue的编译过程
-#nohup bin/webpack-dev-server &>vue.log &
-## 等待vue编译完成
-#sleep 20
-#
-## 启动rails服务器
-#nohup rails s &>rails.log &
-## 等待20秒，等rails启动，因为使用的是jruby，jvm的warmup需要一定时间
-#sleep 20
-#
-## 尝试访问服务
-#http http://localhost:3000/hello/say_hello
-
+sudo su - vagrant -c "/home/vagrant/start.sh"
 
 
 

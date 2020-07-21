@@ -10,9 +10,12 @@ Vagrant.configure("2") do |config|
       v.cpus = 4
   end
 
+  # 必须用到root权限才能拷贝
   config.vm.synced_folder "./repos/", "/tmp/repos/"
   config.vm.provision "shell",
-    inline: "cp -f /tmp/repos/* /etc/yum.repos.d/"
-
+    inline: "cp -f /tmp/repos/* /etc/yum.repos.d/"    
+    
+  # 直接以vagrant的角色身份进行拷贝
+  config.vm.provision "file", source: "./start.sh", destination: "start.sh"  
   config.vm.provision "shell", path: "init.sh"
 end
