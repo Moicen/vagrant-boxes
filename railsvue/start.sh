@@ -8,10 +8,10 @@ nohup bin/webpack-dev-server &>vue.log &
 sleep 10
 #
 ## 启动rails服务器
-nohup rails s &>rails.log &
+nohup rails s -b 0.0.0.0 &>rails.log &
 
 ## 等rails启动
-sleep 20
+sleep 10
 
 #
 ## 尝试访问服务
