@@ -1,6 +1,11 @@
 ## USAGE
 
 ```bash
+$ vagrant up
+
+```
+
+```bash
 $ vagrant ssh                                                                                                                                                                                                                   00:24:30
 [vagrant@ibm-p8-kvm-03-guest-02 ~]$ ls
 hello_world.py
