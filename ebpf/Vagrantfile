@@ -3,6 +3,7 @@ Vagrant.configure("2") do |config|
   config.vm.box_version = "32.20200422.0"
   config.vm.provider :virtualbox do |v|
       v.memory = 2048
+      v.cpus = 4
   end
   config.vm.provision "shell", path: "init.sh"
   config.vm.provision "file", source: "./hello_world.py", destination: "hello_world.py"
